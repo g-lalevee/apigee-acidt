@@ -1,7 +1,7 @@
 [![Generic badge](https://img.shields.io/badge/status-work--in--progress-green.svg)](https://shields.io/) 
 
 
-# Ain't Deployment Tool :construction_worker
+# Ain't Deployment Tool 
 
 ***
 
@@ -9,7 +9,7 @@
 
 ***
 
-**Work in progress :construction_worker:**
+**:warning: Work in progress  :construction:**
 
 Ain't Deployment Tool - aka A(pigee) Int(egration) Deployment Tool - lets you deploy Apigee Integration cconfiguration file.
 
