@@ -11,7 +11,7 @@
 
 **:warning: Work in progress  :construction:**
 
-Ain't Deployment Tool - aka A(pigee) Int(egration) Deployment Tool - lets you deploy Apigee Integration cconfiguration file.
+Ain't Deployment Tool - aka A(pigee) Int(egration) Deployment Tool - lets you deploy Apigee Integration configuration file. <BR>More about [Apigee Integration](https://cloud.google.com/apigee/docs/api-platform/integration/what-is-apigee-integration).
 
 Aintdeployer can be used as a commandline tool. To use it as a CLI you can add it to your path:
 
