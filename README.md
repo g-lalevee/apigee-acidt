@@ -67,35 +67,35 @@ export APIGEE_ORG=<your-apigee-org>
 1. List all Apigee Integrations in us region us (default)
 
 ```sh
-$  ./bin/aintdeployer integration list -o $APIGEE_ORG -t $TOKEN 
+$  aintdeployer integration list -o $APIGEE_ORG -t $TOKEN 
 ```
 <BR>
 
 2. Download lastest version of an Integration
 
 ```sh
-$ ./bin/aintdeployer integration download -o $APIGEE_ORG -t $TOKEN --name myIntegration --directory ./sample
+$ aintdeployer integration download -o $APIGEE_ORG -t $TOKEN --name myIntegration --directory ./sample
 ```
 <BR>
 
 3. Create a new Integration (or a new version of a existing one)
 
 ```sh
-$ ./bin/aintdeployer integration create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./sample/integration.json 
+$ aintdeployer integration create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./sample/integration.json 
  ```
 <BR>
 
 4. Publish (Deploy) lastest version of an Integration
 
 ```sh
-$ ./bin/aintdeployer integration publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
+$ aintdeployer integration publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
  ```
  <BR>
 
 5. Delete an Integration (all versions)
 
 ```sh
-$ ./bin/aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
+$ aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
  ```
  <BR>
 
@@ -104,27 +104,27 @@ $ ./bin/aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
 1. List all Connections in region europe-west1, in debug mode 
 
 ```sh
-$  ./bin/aintdeployer connection list -o $APIGEE_ORG -t $TOKEN -r europe-west1 --debug
+$  aintdeployer connection list -o $APIGEE_ORG -t $TOKEN -r europe-west1 --debug
 ```
 <BR>
 
 2. Download Connection configuration file from a Connection, into ./sample directory
 
 ```sh
-$ ./bin/aintdeployer connection download -o $APIGEE_ORG -t $TOKEN --name myConnection --directory ./sample
+$ aintdeployer connection download -o $APIGEE_ORG -t $TOKEN --name myConnection --directory ./sample
 ```
 <BR>
 
 3. Create a new Connection from configuration file
 
 ```sh
-$ ./bin/aintdeployer connection create -o $APIGEE_ORG -t $TOKEN --name myConnection2 --file ./sample/connection.json 
+$ aintdeployer connection create -o $APIGEE_ORG -t $TOKEN --name myConnection2 --file ./sample/connection.json 
  ```
 <BR>
 
 4. Delete a Connection 
 
 ```sh
-$ ./bin/aintdeployer connection delete -o $APIGEE_ORG -t $TOKEN --name my-test
+$ aintdeployer connection delete -o $APIGEE_ORG -t $TOKEN --name my-test
  ```
  <BR>
