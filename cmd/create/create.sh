@@ -17,7 +17,7 @@ fi
 CREATE_RC=$(curl  -s -L -X POST -H "Authorization: Bearer $token" -H "content-type:application/json" "https://$region-integrations.googleapis.com/v1/projects/$organization/locations/$region/products/apigee/integrations/$name/versions" --data-binary "@$file" )
 CREATE_INTEGRATION=$(echo $CREATE_RC | jq -r ".name" 2>/dev/null )
 
-if [ "$CREATE_INTEGRATION" == null ]; then
+if [ -z "$CREATE_INTEGRATION" ] || [ "$CREATE_INTEGRATION" == null ]; then
     logfatal "$CREATE_RC"
     exit 1
 else 

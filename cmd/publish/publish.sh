@@ -11,7 +11,7 @@ fi
 VERSION=$(curl -s -H "Authorization: Bearer $token" -H "content-type:application/json" "https://$region-integrations.googleapis.com/v1/projects/$organization/locations/$region/products/apigee/integrations/$name/versions" ) 
 PROJECT_URI=$(echo $VERSION | jq -r ".integrationVersions[0].name" 2>/dev/null )
 
-if [ "$PROJECT_URI" == null ]; then
+if [ -z "$PROJECT_URI" ] || [ "$PROJECT_URI" == null ]; then
   if  [ "$VERSION" == "{}" ]; then
     logfatal "Integration not found"
   else 

@@ -56,7 +56,7 @@ do
     ((VERSION_NUM++))
     VERSION=$(echo $VERSION |  cut -d '/' -f 10)
     ARCHIVE_RC=$(curl  -s -L -X POST -H "Authorization: Bearer $token" -H "content-type:application/json" "https://$region-integrations.googleapis.com/v1/projects/$organization/locations/$region/products/apigee/integrations/$name/versions/$VERSION:archive")
-    if  [ "$ARCHIVE_RC" == "{}" ]; then
+    if [ "$ARCHIVE_RC" == "{}" ]; then
         progressbar $VERSION_NUM $VERSION_LIST_SIZE
     else 
         logfatal "$ARCHIVE_RC"
