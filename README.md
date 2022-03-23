@@ -38,10 +38,10 @@ delete
 Options:
 
 -d,--directory, path to the integration configuration file to be created (download)
--f,--file, integration file name (create)
+-f,--file, integration configuration file name (create)
 -n,--name, integration name 
 -o,--organization, Apigee organization name (GCP project id or GCP project number)
--r, --region, Apigee Integration target region
+-r,--region, Apigee Integration target region
 -t,--token, GCP token 
 --debug, show verbose debug output
 ```
