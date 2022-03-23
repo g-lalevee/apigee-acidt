@@ -56,34 +56,39 @@ First, export following environment variables:
 ```sh
 export TOKEN=$(gcloud auth print-access-token)
 export APIGEE_ORG=<your-apigee-org>
-````
+```
 
 1. List all Apigee Integrations
 
 ```sh
 $  ./bin/aintdeployer list -o $APIGEE_ORG -t $TOKEN 
 ```
+<BR>
 
 2. Download lastest version of an Apigee Integration
 
 ```sh
 $ ./bin/aintdeployer download -o $APIGEE_ORG -t $TOKEN --name myIntegration --directory ./integration
 ```
+<BR>
 
 3. Create a new Apigee Integration (or a new version of a existing one)
 
 ```sh
 $ ./bin/aintdeployer create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./integration/new.json 
  ```
+<BR>
 
 4. Publish (Deploy) lastest version of an Apigee Integration
 
 ```sh
 $ ./bin/aintdeployer publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
  ```
+ <BR>
 
 5. Delete an Apigee Integration (all versions)
 
 ```sh
 $ ./bin/aintdeployer delete  -o $APIGEE_ORG -t $TOKEN --name my-test
  ```
+ <BR>
