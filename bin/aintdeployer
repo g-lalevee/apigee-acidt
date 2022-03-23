@@ -21,13 +21,13 @@ delete
 
 Options:
 
--f,--file, integration file name
--n,--name, integration name (to be downloaded or created)
+-d,--directory, path to the integration configuration file to be created (download)
+-f,--file, integration file name (create)
+-n,--name, integration name 
 -o,--organization, Apigee organization name (GCP project id or GCP project number)
 -r, --region, Apigee Integration target region
 -t,--token, GCP token 
 --debug, show verbose debug output
---description, Human friendly integration description
 EOF
 }
 
@@ -56,11 +56,14 @@ posArgs=()
 while [ "$#" -gt 0 ]; do
   case "$1" in
     -d) export directory="$2"; shift 2;;
+    -f) export file="${2}"; shift 2;;
+    -n) export name="${2}"; shift 2;;
     -o) export organization="$2"; shift 2;;
+    -r) export region="${2}"; shift 2;;
     -t) export token="$2"; shift 2;;
 
     --debug) export debug="T"; shift 1;;
-    --description) export description="${2}"; shift 2;;
+    --directory) export directory="${2}"; shift 2;;
     --file) export file="${2}"; shift 2;;
     --name) export name="${2}"; shift 2;;
     --project) export organization="${2}"; shift 2;;
@@ -73,18 +76,15 @@ while [ "$#" -gt 0 ]; do
 done
 
 export token=${token:-$TOKEN}
-export organization=${organization:-$APIGEE_X_ORG}
+export organization=${organization:-$APIGEE_ORG}
+export directory="${directory:-$PWD}"
+export region="${region:-us}"
 
 if [[ -z "$token" ]]; then
     logfatal "required  -t GCP access token"
     exit 1
 fi
 
-if [[ -z "$region" ]]; then
-    region="us"
-fi
-
 logdebug "Apigee OAuth2 access token: ${token:0:8}..."
-
 logdebug "AINTDEPLOYER command: $CMD_TYPE"
 "$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$CMD_TYPE".sh "${posArgs[@]}"

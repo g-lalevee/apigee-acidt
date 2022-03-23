@@ -8,7 +8,7 @@ if [[ -z "$name" ]]; then
 fi
 
 
-VERSION=$(curl -s -H "Authorization: Bearer $token" -H "content-type:application/json" "https://us-integrations.googleapis.com/v1/projects/$organization/locations/us/products/apigee/integrations/$name/versions" ) 
+VERSION=$(curl -s -H "Authorization: Bearer $token" -H "content-type:application/json" "https://$region-integrations.googleapis.com/v1/projects/$organization/locations/$region/products/apigee/integrations/$name/versions" ) 
 PROJECT_URI=$(echo $VERSION | jq -r ".integrationVersions[0].name" 2>/dev/null )
 
 if [ "$PROJECT_URI" == null ]; then
@@ -17,14 +17,16 @@ if [ "$PROJECT_URI" == null ]; then
   else 
     logfatal "$VERSION"
   fi
+  exit 1
 else
   PROJECT_URI=$(echo $VERSION | jq -r ".integrationVersions[0].name")
   VERSION=$(echo $PROJECT_URI |  cut -d '/' -f 10)
-  DEPLOY_RC=$(curl -s -X POST -H "Authorization: Bearer $token" -H "content-type:application/json" "https://us-integrations.googleapis.com/v1/$PROJECT_URI:publish")
+  DEPLOY_RC=$(curl -s -X POST -H "Authorization: Bearer $token" -H "content-type:application/json" "https://$region-integrations.googleapis.com/v1/$PROJECT_URI:publish")
   if  [ "$DEPLOY_RC" == "{}" ]; then
     echo "Integration $name, version $VERSION, succesfully published."
   else 
     logfatal "$DEPLOY_RC"
+    exit 1
   fi
 fi
 echo -e "\n"
