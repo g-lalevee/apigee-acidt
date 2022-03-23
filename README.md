@@ -36,16 +36,16 @@ Commands:
   download
   create
   list
-  publish
+  publish (integration only)
   delete
 
 Options:
 
--d,--directory, path to the integration configuration file to be created (download)
--f,--file, integration file name (create)
--n,--name, integration name 
--o,--organization, Apigee organization name (GCP project id or GCP project number)
--r, --region, Apigee Integration target region
+-d,--directory, path to the connection or integration configuration file to be created (download)
+-f,--file, connection or integration configuration file name (create)
+-n,--name, connection or integration name 
+-o,--organization, Apigee organization name (=GCP project id or GCP project number)
+-r, --region, Apigee connection or integration region
 -t,--token, GCP token 
 --debug, show verbose debug output
 ```
