@@ -24,7 +24,7 @@ PATH="$PATH:$PWD/bin"
 
 ```text
 $ aintdeployer help
-usage: AINTDEPLOYER COMMAND  -o ORG -t TOKEN [options]
+usage: AINTDEPLOYER OBJECT COMMAND -o ORG -t TOKEN [options]
 
 Apigee AINTDEPLOYER utility.
 
