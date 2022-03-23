@@ -125,6 +125,6 @@ $ ./bin/aintdeployer connection create -o $APIGEE_ORG -t $TOKEN --name myConnect
 4. Delete a Connection 
 
 ```sh
-$ ./bin/aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
+$ ./bin/aintdeployer connection delete -o $APIGEE_ORG -t $TOKEN --name my-test
  ```
  <BR>
