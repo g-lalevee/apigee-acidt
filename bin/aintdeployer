@@ -8,9 +8,13 @@ source "$AINTDEPLOYER_ROOT/lib/logutils.sh"
 
 print_usage() {
     cat << EOF
-usage: AINTDEPLOYER COMMAND  -o ORG -t TOKEN [options]
+usage: AINTDEPLOYER OBJECT COMMAND -o ORG -t TOKEN [options]
 
 Apigee AINTDEPLOYER utility.
+
+Objects:
+connection
+integration
 
 Commands:
 download
@@ -31,15 +35,27 @@ Options:
 EOF
 }
 
-CMD_TYPE="$1"
+TARGET_OBJ="$1"
+CMD_TYPE="$2"
+
+
 
 if [ -z "$CMD_TYPE" ] || [ "$CMD_TYPE" = "help" ]; then
     print_usage
     exit 0
-elif [ -z "$CMD_TYPE" ] || [ ! -f "$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$CMD_TYPE".sh ];then
+elif [ -z "$CMD_TYPE" ] || [ ! -f "$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
     logerror "Please provide a valid command"
     exit 1
 fi
+
+if [ -z "$TARGET_OBJ" ] || [ "$TARGET_OBJ" = "help" ]; then
+    print_usage
+    exit 0
+elif [ -z "$TARGET_OBJ" ] || [ ! -f "$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
+    logerror "Please provide a valid command"
+    exit 1
+fi
+
 
 for dependency in jq 
 do
@@ -50,7 +66,7 @@ do
   fi
 done
 
-shift 1
+shift 2
 posArgs=()
 
 while [ "$#" -gt 0 ]; do
@@ -75,6 +91,7 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
+
 export token=${token:-$TOKEN}
 export organization=${organization:-$APIGEE_ORG}
 export directory="${directory:-$PWD}"
@@ -87,4 +104,4 @@ fi
 
 logdebug "Apigee OAuth2 access token: ${token:0:8}..."
 logdebug "AINTDEPLOYER command: $CMD_TYPE"
-"$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$CMD_TYPE".sh "${posArgs[@]}"
+"$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh "${posArgs[@]}"

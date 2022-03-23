@@ -2,7 +2,7 @@
 
 
 # Ain't Deployment Tool 
-
+###### **A**pigee **Int**egration **Deployment Tool** 
 ***
 
 **This is not an official Google product.**<BR>This implementation is not an official Google product, nor is it part of an official Google product. Support is available on a best-effort basis via GitHub.
@@ -28,20 +28,24 @@ usage: AINTDEPLOYER COMMAND  -o ORG -t TOKEN [options]
 
 Apigee AINTDEPLOYER utility.
 
+Objects:
+  connection
+  integration
+
 Commands:
-download
-create
-list
-publish
-delete
+  download
+  create
+  list
+  publish
+  delete
 
 Options:
 
 -d,--directory, path to the integration configuration file to be created (download)
--f,--file, integration configuration file name (create)
+-f,--file, integration file name (create)
 -n,--name, integration name 
 -o,--organization, Apigee organization name (GCP project id or GCP project number)
--r,--region, Apigee Integration target region
+-r, --region, Apigee Integration target region
 -t,--token, GCP token 
 --debug, show verbose debug output
 ```
@@ -58,37 +62,69 @@ export TOKEN=$(gcloud auth print-access-token)
 export APIGEE_ORG=<your-apigee-org>
 ```
 
-1. List all Apigee Integrations
+### Apigee integration
+
+1. List all Apigee Integrations in us region us (default)
 
 ```sh
-$  ./bin/aintdeployer list -o $APIGEE_ORG -t $TOKEN 
+$  ./bin/aintdeployer integration list -o $APIGEE_ORG -t $TOKEN 
 ```
 <BR>
 
-2. Download lastest version of an Apigee Integration
+2. Download lastest version of an Integration
 
 ```sh
-$ ./bin/aintdeployer download -o $APIGEE_ORG -t $TOKEN --name myIntegration --directory ./integration
+$ ./bin/aintdeployer integration download -o $APIGEE_ORG -t $TOKEN --name myIntegration --directory ./sample
 ```
 <BR>
 
-3. Create a new Apigee Integration (or a new version of a existing one)
+3. Create a new Integration (or a new version of a existing one)
 
 ```sh
-$ ./bin/aintdeployer create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./integration/new.json 
+$ ./bin/aintdeployer integration create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./sample/integration.json 
  ```
 <BR>
 
-4. Publish (Deploy) lastest version of an Apigee Integration
+4. Publish (Deploy) lastest version of an Integration
 
 ```sh
-$ ./bin/aintdeployer publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
+$ ./bin/aintdeployer integration publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
  ```
  <BR>
 
-5. Delete an Apigee Integration (all versions)
+5. Delete an Integration (all versions)
 
 ```sh
-$ ./bin/aintdeployer delete  -o $APIGEE_ORG -t $TOKEN --name my-test
+$ ./bin/aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
+ ```
+ <BR>
+
+### Apigee Connection
+
+1. List all Connections in region europe-west1, in debug mode 
+
+```sh
+$  ./bin/aintdeployer connection list -o $APIGEE_ORG -t $TOKEN -r europe-west1 --debug
+```
+<BR>
+
+2. Download Connection configuration file from a Connection, into ./sample directory
+
+```sh
+$ ./bin/aintdeployer connection download -o $APIGEE_ORG -t $TOKEN --name myConnection --directory ./sample
+```
+<BR>
+
+3. Create a new Connection from configuration file
+
+```sh
+$ ./bin/aintdeployer connection create -o $APIGEE_ORG -t $TOKEN --name myConnection2 --file ./sample/connection.json 
+ ```
+<BR>
+
+4. Delete a Connection 
+
+```sh
+$ ./bin/aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
  ```
  <BR>

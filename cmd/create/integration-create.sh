@@ -5,7 +5,7 @@ source "$AINTDEPLOYER_ROOT/lib/logutils.sh"
 logdebug "Creating Integration $name in $organization, region $region, from file $file..."
 
 if [[ -z "$name" ]]; then
-    logfatal "required  -n Integration name for command download"
+    logfatal "required  -n Integration name for command create"
     exit 1
 fi
 
