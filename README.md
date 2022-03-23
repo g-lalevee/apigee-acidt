@@ -1,4 +1,4 @@
-[![Generic badge](https://img.shields.io/badge/status-work--in--progress-green.svg)](https://shields.io/) 
+[![Generic badge](https://img.shields.io/badge/status-work--in--progress-important.svg)](https://shields.io/) ![GitHub last commit](https://img.shields.io/github/last-commit/g-lalevee/Ain-t-deployment-tool) 
 
 
 # Ain't Deployment Tool 
