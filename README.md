@@ -1,13 +1,17 @@
-[![PyPI status](https://img.shields.io/pypi/status/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/) 
+[![Generic badge](https://img.shields.io/badge/status-work--in--progress-green.svg)](https://shields.io/) 
 
-# Ain't Deployment Tool
 
+# Ain't Deployment Tool :construction_worker
+
+***
 
 **This is not an official Google product.**<BR>This implementation is not an official Google product, nor is it part of an official Google product. Support is available on a best-effort basis via GitHub.
 
 ***
 
-Ain't Deployment Tool - aka A(pigee) Int(egration) Deployment Tool - lets you deploy Apigee Integration file.
+**Work in progress :construction_worker:**
+
+Ain't Deployment Tool - aka A(pigee) Int(egration) Deployment Tool - lets you deploy Apigee Integration cconfiguration file.
 
 Aintdeployer can be used as a commandline tool. To use it as a CLI you can add it to your path:
 
