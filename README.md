@@ -67,7 +67,7 @@ $  ./bin/aintdeployer list -o $APIGEE_ORG -t $TOKEN
 2. Download lastest version of an Apigee Integration
 
 ```sh
-$ ./bin/aintdeployer download -o $APIGEE_ORG -t $TOKEN --name myIntegration
+$ ./bin/aintdeployer download -o $APIGEE_ORG -t $TOKEN --name myIntegration --directory ./integration
 ```
 
 3. Create a new Apigee Integration (or a new version of a existing one)
@@ -79,7 +79,7 @@ $ ./bin/aintdeployer create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./in
 4. Publish (Deploy) lastest version of an Apigee Integration
 
 ```sh
-$ ./bin/aintdeployer publish  -o $APIGEE_ORG -t $TOKEN --name my-test 
+$ ./bin/aintdeployer publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
  ```
 
 5. Delete an Apigee Integration (all versions)
