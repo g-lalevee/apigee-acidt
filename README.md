@@ -37,13 +37,13 @@ delete
 
 Options:
 
--f,--file, integration file name
--n,--name, integration name (to be downloaded or created)
+-d,--directory, path to the integration configuration file to be created (download)
+-f,--file, integration file name (create)
+-n,--name, integration name 
 -o,--organization, Apigee organization name (GCP project id or GCP project number)
 -r, --region, Apigee Integration target region
 -t,--token, GCP token 
 --debug, show verbose debug output
---description, Human friendly integration description
 ```
 
 ## CLI Examples
