@@ -81,21 +81,21 @@ $ aintdeployer integration download -o $APIGEE_ORG -t $TOKEN --name myIntegratio
 3. Create a new Integration (or a new version of a existing one)
 
 ```sh
-$ aintdeployer integration create  -o $APIGEE_ORG -t $TOKEN --name my-test --file ./sample/integration.json 
+$ aintdeployer integration create  -o $APIGEE_ORG -t $TOKEN --name myIntegration --file ./sample/integration.json 
  ```
 <BR>
 
 4. Publish (Deploy) lastest version of an Integration
 
 ```sh
-$ aintdeployer integration publish  -o $APIGEE_ORG -t $TOKEN --name my-test --debug
+$ aintdeployer integration publish  -o $APIGEE_ORG -t $TOKEN --name myIntegration --debug
  ```
  <BR>
 
 5. Delete an Integration (all versions)
 
 ```sh
-$ aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
+$ aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name myIntegration
  ```
  <BR>
 
@@ -125,6 +125,6 @@ $ aintdeployer connection create -o $APIGEE_ORG -t $TOKEN --name myConnection2 -
 4. Delete a Connection 
 
 ```sh
-$ aintdeployer connection delete -o $APIGEE_ORG -t $TOKEN --name my-test
+$ aintdeployer connection delete -o $APIGEE_ORG -t $TOKEN --name myConnection
  ```
  <BR>
