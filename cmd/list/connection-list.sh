@@ -18,7 +18,7 @@ if [ "$CONNECTION_LIST_RC" != "{}" ] && { [ -z "$CONNECTION_LIST" ] || [ "$CONNE
 else 
     CONNECTION_LIST_SIZE=$(echo $CONNECTION_LIST_RC | jq -r ".connections | length" 2>/dev/null )
     echo $CONNECTION_LIST_RC | jq -r '.'
-    echo "Connection list ($CONNECTION_LIST_SIZE connections) succesfully retrieved."
+    echo "Connection list ($CONNECTION_LIST_SIZE connections) succesfully retrieved from region $region."
 fi
 
 echo -e "\n"

@@ -52,7 +52,7 @@ if [ -z "$TARGET_OBJ" ] || [ "$TARGET_OBJ" = "help" ]; then
     print_usage
     exit 0
 elif [ -z "$TARGET_OBJ" ] || [ ! -f "$ACIDT_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
-    logerror "Please provide a valid command"
+    logerror "Please provide a valid group"
     exit 1
 fi
 
@@ -95,7 +95,13 @@ done
 export token=${token:-$TOKEN}
 export organization=${organization:-$APIGEE_ORG}
 export directory="${directory:-$PWD}"
-export region="${region:-us}"
+
+if [ "$TARGET_OBJ" == "integration" ]; then
+    export region="${region:-us}"
+else
+    export region="${region:-us-west1}"
+fi
+
 
 if [[ -z "$token" ]]; then
     logfatal "required  -t GCP access token"

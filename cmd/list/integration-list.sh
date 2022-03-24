@@ -19,7 +19,7 @@ if [ "$INTEGRATION_LIST_RC" != "{}" ] && { [ -z "$INTEGRATION_LIST" ] || [ "$INT
 else 
     INTEGRATION_LIST_SIZE=$(echo $INTEGRATION_LIST_RC | jq -r ".integrations | length" 2>/dev/null )
     echo $INTEGRATION_LIST_RC | jq -r '.'
-    echo "Integration list ($INTEGRATION_LIST_SIZE integrations) succesfully retrieved."
+    echo "Integration list ($INTEGRATION_LIST_SIZE integrations) succesfully retrieved from region $region."
 fi
 
 echo -e "\n"

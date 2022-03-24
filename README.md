@@ -64,7 +64,7 @@ export APIGEE_ORG=<your-apigee-org>
 
 ### Apigee integration
 
-1. List all Apigee Integrations in us region (default)
+1. List all Apigee Integrations in us region (Integration default region is us)
 
 ```sh
 $ acidt integration list -o $APIGEE_ORG -t $TOKEN 
@@ -101,7 +101,7 @@ $ acidt integration delete  -o $APIGEE_ORG -t $TOKEN --name myIntegration
 
 ### Apigee Connection
 
-1. List all Connections in region europe-west1, in debug mode 
+1. List all Connections in region europe-west1, in debug mode (Connection default region is us-west1) 
 
 ```sh
 $ acidt connection list -o $APIGEE_ORG -t $TOKEN -r europe-west1 --debug
