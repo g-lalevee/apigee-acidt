@@ -64,7 +64,7 @@ export APIGEE_ORG=<your-apigee-org>
 
 ### Apigee integration
 
-1. List all Apigee Integrations in us region us (default)
+1. List all Apigee Integrations in us region (default)
 
 ```sh
 $ acidt integration list -o $APIGEE_ORG -t $TOKEN 
