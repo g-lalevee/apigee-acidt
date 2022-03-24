@@ -1,8 +1,8 @@
-[![Generic badge](https://img.shields.io/badge/status-work--in--progress-important.svg)](https://shields.io/) ![GitHub last commit](https://img.shields.io/github/last-commit/g-lalevee/Ain-t-deployment-tool) 
+[![Generic badge](https://img.shields.io/badge/status-work--in--progress-important.svg)](https://shields.io/) ![GitHub last commit](https://img.shields.io/github/last-commit/g-lalevee/apigee-acidt) 
 
 
 # Apigee acidt 
-###### **A**pigee **Int**egration **Deployment Tool** 
+**A**pigee **C**onnection and **Int**egration **D**eployment **T**ool 
 ***
 
 **This is not an official Google product.**<BR>This implementation is not an official Google product, nor is it part of an official Google product. Support is available on a best-effort basis via GitHub.
