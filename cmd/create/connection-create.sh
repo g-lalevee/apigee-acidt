@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$AINTDEPLOYER_ROOT/lib/logutils.sh"
+source "$ACIDT_ROOT/lib/logutils.sh"
 
 logdebug "Creating Connection $name in $organization, region $region, from file $file..."
 

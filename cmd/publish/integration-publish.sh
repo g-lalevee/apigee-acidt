@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$AINTDEPLOYER_ROOT/lib/logutils.sh"
+source "$ACIDT_ROOT/lib/logutils.sh"
 
 if [[ -z "$name" ]]; then
     logfatal "required  -n Integration name for command download"

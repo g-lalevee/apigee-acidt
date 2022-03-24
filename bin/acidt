@@ -3,25 +3,25 @@
 
 set -e
 
-export AINTDEPLOYER_ROOT=$( (cd "$(dirname "$0")" && cd .. && pwd ))
-source "$AINTDEPLOYER_ROOT/lib/logutils.sh"
+export ACIDT_ROOT=$( (cd "$(dirname "$0")" && cd .. && pwd ))
+source "$ACIDT_ROOT/lib/logutils.sh"
 
 print_usage() {
     cat << EOF
-usage: AINTDEPLOYER OBJECT COMMAND -o ORG -t TOKEN [options]
+usage: ACIDT OBJECT COMMAND -o ORG -t TOKEN [options]
 
-Apigee AINTDEPLOYER utility.
+ACIDT: Apigee Connection and Integration utility
 
 Objects:
-connection
-integration
+ connection
+ integration
 
 Commands:
-download
-create
-list
-publish
-delete
+ download
+ create
+ list
+ publish (integration only)
+ delete
 
 Options:
 
@@ -43,7 +43,7 @@ CMD_TYPE="$2"
 if [ -z "$CMD_TYPE" ] || [ "$CMD_TYPE" = "help" ]; then
     print_usage
     exit 0
-elif [ -z "$CMD_TYPE" ] || [ ! -f "$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
+elif [ -z "$CMD_TYPE" ] || [ ! -f "$ACIDT_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
     logerror "Please provide a valid command"
     exit 1
 fi
@@ -51,7 +51,7 @@ fi
 if [ -z "$TARGET_OBJ" ] || [ "$TARGET_OBJ" = "help" ]; then
     print_usage
     exit 0
-elif [ -z "$TARGET_OBJ" ] || [ ! -f "$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
+elif [ -z "$TARGET_OBJ" ] || [ ! -f "$ACIDT_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh ];then
     logerror "Please provide a valid command"
     exit 1
 fi
@@ -103,5 +103,5 @@ if [[ -z "$token" ]]; then
 fi
 
 logdebug "Apigee OAuth2 access token: ${token:0:8}..."
-logdebug "AINTDEPLOYER command: $CMD_TYPE"
-"$AINTDEPLOYER_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh "${posArgs[@]}"
+logdebug "ACIDT command: $CMD_TYPE"
+"$ACIDT_ROOT"/cmd/"$CMD_TYPE"/"$TARGET_OBJ-$CMD_TYPE".sh "${posArgs[@]}"
