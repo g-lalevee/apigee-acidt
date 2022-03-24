@@ -67,7 +67,7 @@ export APIGEE_ORG=<your-apigee-org>
 1. List all Apigee Integrations in us region us (default)
 
 ```sh
-$  aintdeployer integration list -o $APIGEE_ORG -t $TOKEN 
+$ aintdeployer integration list -o $APIGEE_ORG -t $TOKEN 
 ```
 <BR>
 
@@ -104,7 +104,7 @@ $ aintdeployer integration delete  -o $APIGEE_ORG -t $TOKEN --name my-test
 1. List all Connections in region europe-west1, in debug mode 
 
 ```sh
-$  aintdeployer connection list -o $APIGEE_ORG -t $TOKEN -r europe-west1 --debug
+$ aintdeployer connection list -o $APIGEE_ORG -t $TOKEN -r europe-west1 --debug
 ```
 <BR>
 
