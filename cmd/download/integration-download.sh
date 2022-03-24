@@ -9,6 +9,11 @@ if [[ -z "$name" ]]; then
     exit 1
 fi
 
+if [[ -z "$region" ]]; then
+    logfatal "required  -r Region name for command delete"
+    exit 1
+fi
+
 VERSION=$(curl -s -H "Authorization: Bearer $token" -H "content-type:application/json" "https://$region-integrations.googleapis.com/v1/projects/$organization/locations/$region/products/apigee/integrations/$name/versions" ) 
 PROJECT_URI=$(echo $VERSION | jq -r ".integrationVersions[0].name" 2>/dev/null )
 

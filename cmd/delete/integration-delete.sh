@@ -45,6 +45,11 @@ if [ -z "$VERSION_LIST" ]; then
     exit 1
 fi
 
+if [[ -z "$region" ]]; then
+    logfatal "required  -r Region name for command delete"
+    exit 1
+fi
+
 # Get number of versions
 preparebar 10 "#"
 VERSION_LIST_SIZE=$(echo $VERSION_LIST | wc -w)

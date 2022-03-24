@@ -4,6 +4,11 @@ source "$ACIDT_ROOT/lib/logutils.sh"
 
 logdebug "Extracting Connection list from $organization, region $region..."
 
+if [[ -z "$region" ]]; then
+    logfatal "required  -r Region name for command list"
+    exit 1
+fi
+
 CONNECTION_LIST_RC=$(curl -s -H "Authorization: Bearer $token" -H "content-type:application/json" "https://connectors.googleapis.com/v1/projects/$organization/locations/$region/connections" )
 CONNECTION_LIST=$(echo $CONNECTION_LIST_RC | jq -r ".connections" 2>/dev/null )
 

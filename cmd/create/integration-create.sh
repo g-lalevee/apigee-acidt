@@ -9,6 +9,11 @@ if [[ -z "$name" ]]; then
     exit 1
 fi
 
+if [[ -z "$region" ]]; then
+    logfatal "required  -r Region name for command create"
+    exit 1
+fi
+
 if [[ -z "$file" ]]; then
     logfatal "required  -f Integration file name for command create"
     exit 1

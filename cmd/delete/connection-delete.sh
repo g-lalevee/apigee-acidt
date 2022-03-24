@@ -20,14 +20,19 @@ if [[ -z "$name" ]]; then
     exit 1
 fi
 
-CONNECTOR_RC=$(curl -s -X DELETE -H "Authorization: Bearer $token" -H "content-type:application/json" "https://connectors.googleapis.com/v1/projects/$organization/locations/$region/connections/$name" ) 
+if [[ -z "$region" ]]; then
+    logfatal "required  -r Region name for command delete"
+    exit 1
+fi
 
-CONNECTOR_ERROR=$(echo $CONNECTOR_RC | jq -r ".error" 2> /dev/null)
+CONNECTION_RC=$(curl -s -X DELETE -H "Authorization: Bearer $token" -H "content-type:application/json" "https://connectors.googleapis.com/v1/projects/$organization/locations/$region/connections/$name" ) 
 
-if [ -z "$CONNECTOR_ERROR" ] || [ "$CONNECTOR_ERROR" == null ]; then
+CONNECTION_ERROR=$(echo $CONNECTION_RC | jq -r ".error" 2> /dev/null)
+
+if [ -z "$CONNECTION_ERROR" ] || [ "$CONNECTION_ERROR" == null ]; then
     echo "Connection $name succesfully deleted."
 else 
-    logfatal "$CONNECTOR_RC"
+    logfatal "$CONNECTION_RC"
     exit 1
 fi
 
